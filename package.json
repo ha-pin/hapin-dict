@@ -1,7 +1,7 @@
 {
   "name": "hapin-dict",
   "version": "1.0.0",
-  "description": "Hapin 词典工程",
+  "description": "Hapin 词库工程",
   "main": "dist/index.mjs",
   "scripts": {
     "dev": "tsup --watch",
