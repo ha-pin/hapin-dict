@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
-    "gen": "node dist/index.mjs"
+    "gen": "node dist/index.mjs",
+    "gen:dict": "node dist/rime.mjs"
   },
   "repository": {
     "type": "git",
