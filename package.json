@@ -1,12 +1,14 @@
 {
   "name": "hapin-dict",
-  "version": "1.0.0",
+  "version": "1.0",
+  "private": true,
   "description": "Hapin 词库工程",
   "main": "dist/index.mjs",
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
-    "gen": "node dist/index.mjs",
+    "gen": "node generators/index.mjs",
+    "gen:macos": "",
     "gen:dict": "node dist/rime.mjs"
   },
   "repository": {
