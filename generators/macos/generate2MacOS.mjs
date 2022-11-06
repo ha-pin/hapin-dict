@@ -11,7 +11,7 @@ const target = path.join(path.resolve(), "targets")
 const HapinIME_Cyrillic_INPUTPLUGIN = "HapinIME_Cyrillic.inputplugin"
 const HapinIME_Arabic_INPUTPLUGIN = "HapinIME_Arabic.inputplugin"
 
-const content = (label, name, version, dict) => `# (c) 哈拼输入法 HapinIME 2022
+const content = (label, name, version, key, dict) => `# (c) 哈拼输入法 HapinIME 2022
 # ${label}
 # 本词库采取非商用进行授权，保留一切可追诉的合法权益
 METHOD:TABLE
@@ -19,7 +19,7 @@ ENCODE:KK
 PROMPT:${name}
 DELIMIER:,
 VERSION:${version}
-VALIDINPUTKEY:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+VALIDINPUTKEY:${key}
 BEGINCHARACTER
 ${dict}
 ENDCHARACTER
@@ -41,6 +41,7 @@ export function genMacOS(text) {
         "哈拼西里尔文输入方案",
         "哈拼西里尔文输入法",
         version,
+        "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
         cyrillic_dict
     )
 
@@ -48,6 +49,7 @@ export function genMacOS(text) {
         "哈拼老文字输入方案",
         "哈拼老文字输入法",
         version,
+        "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz?,$",
         arabic_dict
     )
 

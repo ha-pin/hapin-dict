@@ -8,12 +8,19 @@ import fs from "fs"
 const complete = (hapin) =>
     hapin.includes("x") ? [hapin, `x${hapin.replace(/x/g, "")}`] : [hapin]
 
+const arabicSymbols = [
+    [",", "،"],
+    ["?", "؟"],
+    ["$", "￥"]
+]
+
 export const dict = (mod) => {
     const text = fs.readFileSync(
         path.join(path.resolve(), "sources", "r.txt"),
         "utf-8"
     )
-    return text
+
+    const tb = text
         .split("\n")
         .map((t) => {
             if (mod === "cyrillic") {
@@ -31,4 +38,10 @@ export const dict = (mod) => {
             }
         })
         .flat(1)
+
+    if (mod === "arabic") {
+        return [...arabicSymbols, ...tb]
+    } else {
+        return tb
+    }
 }
