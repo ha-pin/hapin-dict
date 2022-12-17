@@ -6,7 +6,9 @@ import path from "path"
 import fs from "fs"
 
 const complete = (hapin) =>
-    hapin.includes("x") ? [hapin, `x${hapin.replace(/x/g, "")}`] : [hapin]
+    hapin.includes("x")
+        ? [hapin, `x${hapin.replace(/x/g, "")}`, `${hapin.replace(/x/g, "")}`]
+        : [hapin]
 
 const arabicSymbols = [
     [",", "،"],
@@ -14,7 +16,7 @@ const arabicSymbols = [
     ["$", "￥"]
 ]
 
-export const dict = (mod) => {
+export const dict = (mod, noSymbols = false) => {
     const text = fs.readFileSync(
         path.join(path.resolve(), "sources", "r.txt"),
         "utf-8"
@@ -30,7 +32,7 @@ export const dict = (mod) => {
                 ])
             } else {
                 // arabic
-                const a = transformCyrillicToArabic(t)
+                const a = transformCyrillicToArabic(t).replace("ٴ", "ء")
                 return complete(transformCyrillicToHapin(t)).map((hh) => [
                     hh,
                     a,
@@ -39,7 +41,7 @@ export const dict = (mod) => {
         })
         .flat(1)
 
-    if (mod === "arabic") {
+    if (mod === "arabic" && !noSymbols) {
         return [...arabicSymbols, ...tb]
     } else {
         return tb

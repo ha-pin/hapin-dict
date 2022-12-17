@@ -9,7 +9,8 @@
     "build": "tsup",
     "gen": "node generators/index.mjs",
     "gen:macos": "",
-    "gen:dict": "node dist/rime.mjs"
+    "gen:dict": "node dist/rime.mjs",
+    "gen:hapinIME": "node generators/hapinIME/index.mjs"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,8 @@
   },
   "homepage": "https://github.com/ha-pin/hapin-dict#readme",
   "dependencies": {
-    "hapin-utils": "^2.2.0"
+    "hapin-utils": "^3.2.0",
+    "sqlite3": "^5.1.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.25",

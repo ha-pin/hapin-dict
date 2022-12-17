@@ -28,7 +28,7 @@ ENDCHARACTER
 const write = (t, text) =>
     fs.writeFileSync(path.join(target, t), text, { encoding: "utf16le" })
 
-export function genMacOS(text) {
+export function genMacOS() {
     // TODO 词库生成
     const cyrillic_dict = dict("cyrillic")
         .map((d) => `${d[0]} ${d[1]}`)
